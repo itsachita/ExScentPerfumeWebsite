@@ -1,0 +1,26 @@
+{
+  "name": "exscentperfumewebsite",
+  "version": "1.0.0",
+  "description": "This project is part of ITCS223: Introduction to Web Development of Faculty of Information and Communication Technology, Mahidol University.",
+  "homepage": "https://github.com/itsachita/ExScentPerfumeWebsite#readme",
+  "bugs": {
+    "url": "https://github.com/itsachita/ExScentPerfumeWebsite/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/itsachita/ExScentPerfumeWebsite.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.1",
+    "express": "^5.2.1",
+    "mysql2": "^3.20.0",
+    "nodemon": "^3.1.14"
+  }
+}
