@@ -5,8 +5,9 @@
     font-family: sans-serif;
 }
 
-/* |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
+/* ------------------------------------------------------------------------------------------ */
 /* ||||||||||||||||||||||||||||||||||||< HEADER AREA >||||||||||||||||||||||||||||||||||||||| */
+/* ------------------------------------------------------------------------------------------ */
 .main-header {
     display: flex;
     align-items: center;
@@ -28,6 +29,7 @@
     color: white;
     text-decoration: none;          /* Remove html's underline ordered list */
     font-size: 14px;
+    font-weight: 200;
     opacity: 1;
     transition: opacity 0.3s;
 }
@@ -64,8 +66,8 @@
 
 .icons {
     display: flex;
-    gap: 15px;
-    font-size: 20px;
+    gap: 5px;
+    font-size: 15px;
     cursor: pointer;                /* Change cursor into 'hand' when hovering */
 }
 
@@ -73,22 +75,155 @@
     display: flex;
     align-items: center;
 }
+/* ------------------------------------------------------------------------------------------ */
 /* |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
+/* ------------------------------------------------------------------------------------------ */
 
 
 
-/* |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
+/* ------------------------------------------------------------------------------------------ */
 /* |||||||||||||||||||||||||||||||||||||< BODY AREA >|||||||||||||||||||||||||||||||||||||||| */
+/* ------------------------------------------------------------------------------------------ */
 body {
     background-color: #000000;
     color: white;
 }
+
+.content-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 Columns (1 fr per column) */
+    gap: 20px;                      /* padding between each column */
+    padding: 60px;
+    min-height: 600px;
+}
+
+.col-left {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.col-left .row-item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.col-right {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.row-item a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.row-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;              /* Scalar resizing (no image distortion) */
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.row-item img:hover {
+    transform: scale(1.05);          /* When the cursor is on the image, the image will be zoomed in by 5% */
+}
+
+/* ------------------------------------------------------------------------------------------ */
+
+.product-pannel {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px 60px;
+    gap: 30px;
+}
+
+.product-pannel h1 {
+    width: 100%; 
+    font-size: 80px;
+    color: #FFFFFF;
+}
+
+.product-item {
+    flex: 0 0 280px;
+    cursor: pointer;
+}
+
+.product-scroll {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    width: 100%;
+    
+    scroll-snap-type: x mandatory;  /* Scroll snap for smooth scrolling */
+    
+    padding-bottom: 20px;
+    scrollbar-width: none;          /* Scrollbar hiding */
+}
+
+.image-box {
+    background-color: #ffffff;
+    aspect-ratio: 1 / 1.2;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+.image-box img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;            /* Full image, no cutting */
+}
+
+.product-item {
+    flex: 0 0 calc(25% - 15px);     /* 25% (4 products per display) deducteed with gap */
+    
+    scroll-snap-align: start;       /* Lock the position at the start of the image */
+    
+    cursor: pointer;
+}
+
+.product-info {
+    text-align: left;
+}
+
+.brand {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 4px;
+}
+
+.name {
+    font-size: 14px;
+    color: #FFFFFF;
+    margin-bottom: 4px;
+}
+
+.price {
+    font-size: 16px;
+    color: #F16001;
+    font-weight: 500;
+}
+/* ------------------------------------------------------------------------------------------ */
 /* |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
+/* ------------------------------------------------------------------------------------------ */
 
 
 
-/* |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
+/* ------------------------------------------------------------------------------------------ */
 /* ||||||||||||||||||||||||||||||||||||< ERROR PAGE >|||||||||||||||||||||||||||||||||||||||| */
+/* ------------------------------------------------------------------------------------------ */
 .error-page {
     display: flex;
     justify-content: center;
@@ -124,12 +259,15 @@ body {
     background-color: white;
     color: black;
 }
+/* ------------------------------------------------------------------------------------------ */
 /* |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
+/* ------------------------------------------------------------------------------------------ */
 
 
 
-/* |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
+/* ------------------------------------------------------------------------------------------ */
 /* |||||||||||||||||||||||||||||||||< FOOTER APPEARANCE >|||||||||||||||||||||||||||||||||||| */
+/* ------------------------------------------------------------------------------------------ */
 .main-footer {
     background-color: #000000;
     color: white;
@@ -148,10 +286,62 @@ body {
     height: 60px;
 }
 
-.footer-links a{
+.footer-links a {
     text-decoration: none;          /* Remove html's underline ordered list */
     color: white;
     opacity: 0.75;
-    margin-left: 32px; 
+    text-align: right;
+    margin-right: 20px;
+    font-size: 15px;
 }
+
+.newsletter-section {
+    display: flex;
+    text-align: right;
+    flex-direction: column;         /* Display in column */
+    align-items: flex-end;
+    gap: 10px;
+    font-size: 16px;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 10px;
+}
+
+.newsletter-title {
+    font-weight: 600;
+}
+
+.newsletter-form input {
+    padding: 5px 10px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    width: 300px;
+    background-color: transparent;
+    color: white;
+    outline: none;                  /* Smooth text box clicking */
+    font-size: 12px;
+}
+
+.newsletter-form button {
+    padding: 7px 10px;
+    border: 1px solid #F16001;
+    background-color: #F16001;
+    color: white;
+    font-size: 12px;
+    cursor: pointer;                /* Change cursor into 'hand' when hovering */
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+}
+/* ------------------------------------------------------------------------------------------ */
 /* |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
+/* ------------------------------------------------------------------------------------------ */
