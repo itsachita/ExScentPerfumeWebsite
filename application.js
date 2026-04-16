@@ -31,6 +31,12 @@ router.get('/', (req, res) => {
     res.sendFile(path.join(`${__dirname}/html/main.html`))
 })
 
+router.get('/about-us', (req, res) => {
+    res.statusCode = 200;
+    console.log("Request at " + req.url);
+    res.sendFile(path.join(`${__dirname}/html/about-us.html`))
+})
+
 router.use((req, res, next) => {
     console.log("Request at " + req.url);
     console.log("404: Invalid accessed");
