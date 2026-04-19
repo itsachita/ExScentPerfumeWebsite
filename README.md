@@ -57,8 +57,8 @@ This will run the application using nodemon, which automatically restarts the se
 
 ```
 ExScentPerfumeWebsite/
-├── application.js           # Main application entry point
-├── package.json            # Project dependencies and scripts
+├── application.js         # Main application entry point
+├── package.json           # Project dependencies and scripts
 ├── README.md              # This file
 ├── html/
 │   ├── main.html          # Main page
