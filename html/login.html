@@ -68,6 +68,8 @@
             display: flex;
             flex-direction: column;         /* Display in column */
             gap: 20px;                    /* Space between form elements */
+            border: none;
+            outline: none;
         }
 
         .login-form input {
@@ -75,6 +77,13 @@
             border-radius: 4px;
             opacity: 0.6;
             border: none;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 5px;
+            gap: 5px;
         }
 
         .login-form button {
@@ -100,10 +109,17 @@
     <div class="right-box">
         <form class="login-form">
             <h1>ADMINISTRATOR LOGIN</h1>
-            <p>Username</p>
-            <input type="username" required>
-            <p>Password</p>
-            <input type="password" required>
+
+            <div class="input-group">
+                <label>Username</label>
+                <input type="text" required>
+            </div>
+
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" required>
+            </div>
+
             <button type="submit">LOG IN</button>
         </form>
     </div>
