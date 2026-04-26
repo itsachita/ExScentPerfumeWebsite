@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExScent - Admin Dashboard</title>
+    <link rel="stylesheet" href="css/style-admin.css"/>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0" />
+</head>
+<!-- |||||||||||||||||||||||||||||||||< HEADER APPEARANCE >|||||||||||||||||||||||||||||||||||| -->
+<body>
+    <header class="admin-header">
+        <div class="admin-nav-group">
+            <a href="/" class="logo">
+                <img src="images/icon/logo.svg" alt="Logo" style="height: 45px;">
+            </a>
+            <nav class="admin-nav-links">
+                <a href="admin-main">DASHBOARD</a>
+                <a href="prod-admin">PRODUCT</a>
+                <a href="prod-order">ORDER</a>
+                <a href="prod-invoice">INVOICE</a>
+            </nav>
+        </div>
+        
+        <div class="admin-right-section">
+            <button class="admin-profile-btn">
+                <span class="material-symbols-outlined">account_circle</span>
+                <span>ADMIN/01</span>
+            </button>
+            
+            <a href="/" class="admin-logout-btn">
+                <span class="material-symbols-outlined">logout</span>
+            </a>
+        </div>
+    </header>
+
+<main class="admin-main-content">
+    <div class="admin-page-header">
+        <h1>PRODUCT DISPLAY</h1>
+        <div class="header-actions">
+            <a href="/prod-config-delete" class="btn-outline">
+                <span class="material-symbols-outlined" style="font-size: 18px;">tune</span> CONFIGURE
+            </a>
+            <a href="/prod-config" class="btn-solid">
+                + ADD PRODUCT
+            </a>
+        </div>
+    </div>
+
+    <div class="admin-controls">
+        <div class="search-row">
+            <div class="filter-options">
+                <label class="filter-item"><input type="checkbox"> BRANDS</label>
+                <label class="filter-item"><input type="checkbox"> PRODUCTS</label>
+                <label class="filter-item"><input type="checkbox"> FRAGRANCE NOTES</label>
+            </div>
+            <div class="search-container">
+                <div class="search-input-wrapper">
+                    <input type="text" class="search-input" placeholder="SEARCH">
+                </div>
+                <button class="btn-search">SEARCH</button>
+            </div>
+        </div>
+
+        <div class="filter-row">
+            <div class="filter-group">
+                <span>Sort By</span>
+                <div class="select-wrapper">
+                    <select class="custom-select">
+                        <option>Select</option>
+                        <option value="price">Price</option>
+                        <option value="a-z">A-Z</option>
+                        <option value="rating">Rating</option>
+                    </select>
+                </div>
+            </div>
+            <div class="filter-group">
+                <span>Filter By</span>
+                <div class="select-wrapper">
+                    <select class="custom-select">
+                        <option>EDT</option>
+                        <option value="edp">EDP</option>
+                        <option value="parfum">Parfum</option>
+                    </select>
+                </div>
+                <div class="select-wrapper">
+                    <select class="custom-select">
+                        <option>Unisex</option>
+                        <option value="feminine">Feminine</option>
+                        <option value="masculine">Masculine</option>
+                    </select>
+                </div>
+                <div class="select-wrapper">
+                    <select class="custom-select">
+                        <option>IN-STOCK FRAGRANCES</option>
+                        <option value="out-of-stock">OUT-OF-STOCK FRAGRANCES</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="admin-table">
+        <div class="table-header">
+            <div class="col-product">Products</div>
+            <div class="col-price">Prices / Unit</div>
+            <div class="col-stock">Stock</div>
+            <div class="col-status">Status</div>
+            <div class="col-configure">Configure</div>
+        </div>
+
+        <div class="table-row">
+            <div class="col-product">
+                <div class="product-image-box">
+                    <img src="https://www.central.co.th/_next/image?url=https%3A%2F%2Fassets.central.co.th%2Ffile-assets%2FCDSPIM%2Fweb%2FImage%2FCDS9572%2FGIORGIO_ARMANI-MenFragranceArmaniCodeLeParfum75mL-CDS95721071-1.webp&w=1080&q=75" alt="GA">
+                </div>
+                <div class="product-details">
+                    <span class="product-code">GA-00010001</span>
+                    <span class="product-brand">Giorgio Armani</span>
+                    <span class="product-name">Code Parfum</span>
+                </div>
+                <div class="select-wrapper size-select-wrapper">
+                    <select class="size-select">
+                        <option>75ml</option>
+                        <option>50ml</option>
+                        <option>100ml</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-price">THB 5,568</div>
+            <div class="col-stock">120</div>
+            <div class="col-status">
+                <div class="status-select-wrapper">
+                    <span class="dot green"></span>
+                    <select class="status-select" onchange="this.previousElementSibling.className = 'dot ' + (this.value === 'active' ? 'green' : 'red')">
+                        <option value="active">Active</option>
+                        <option value="disabled">Disabled</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-configure">
+                <button class="btn-edit">
+                    <span class="material-symbols-outlined" style="font-size: 16px;">edit</span> Edit
+                </button>
+            </div>
+        </div>
+
+        <div class="table-row">
+            <div class="col-product">
+                <div class="product-image-box">
+                    <img src="https://www.central.co.th/_next/image?url=https%3A%2F%2Fassets.central.co.th%2Ffile-assets%2FCDSPIM%2Fweb%2FImage%2FCDS7482%2FTOMFORDBEAUTY-TUSCANLEATHER-CDS7482861-1.webp&w=1080&q=75" alt="TF">
+                </div>
+                <div class="product-details">
+                    <span class="product-code">TF-00010001</span>
+                    <span class="product-brand">Tom Ford</span>
+                    <span class="product-name">Oud Minerale</span>
+                </div>
+                <div class="select-wrapper size-select-wrapper">
+                    <select class="size-select">
+                        <option>100ml</option>
+                        <option>50ml</option>
+                        <option>75ml</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-price">THB 8,800</div>
+            <div class="col-stock">24</div>
+            <div class="col-status">
+                <div class="status-select-wrapper">
+                    <span class="dot green"></span>
+                    <select class="status-select" onchange="this.previousElementSibling.className = 'dot ' + (this.value === 'active' ? 'green' : 'red')">
+                        <option value="active">Active</option>
+                        <option value="disabled">Disabled</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-configure">
+                <button class="btn-edit">
+                    <span class="material-symbols-outlined" style="font-size: 16px;">edit</span> Edit
+                </button>
+            </div>
+        </div>
+
+        <div class="table-row">
+            <div class="col-product">
+                <div class="product-image-box">
+                    <img src="https://www.central.co.th/_next/image?url=https%3A%2F%2Fassets.central.co.th%2Ffile-assets%2FCDSPIM%2Fweb%2FImage%2FCDS2141%2FISSEYMIYAKE-MENFRAGRANCELEAUDISSEYPOURHOMMEEAUDEPARFUM125ML-CDS21412318-1.webp&w=1080&q=75" alt="LV">
+                </div>
+                <div class="product-details">
+                    <span class="product-code">LV-00010001</span>
+                    <span class="product-brand">Louis Vuitton</span>
+                    <span class="product-name">Imagination</span>
+                </div>
+                <div class="select-wrapper size-select-wrapper">
+                    <select class="size-select">
+                        <option>100ml</option>
+                        <option>50ml</option>
+                        <option>75ml</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-price">THB 12,500</div>
+            <div class="col-stock">50</div>
+            <div class="col-status">
+                <div class="status-select-wrapper">
+                    <span class="dot green"></span>
+                    <select class="status-select" onchange="this.previousElementSibling.className = 'dot ' + (this.value === 'active' ? 'green' : 'red')">
+                        <option value="active">Active</option>
+                        <option value="disabled">Disabled</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-configure">
+                <button class="btn-edit">
+                    <span class="material-symbols-outlined" style="font-size: 16px;">edit</span> Edit
+                </button>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+
+<!-- |||||||||||||||||||||||||||||||< FOOTER APPEARANCE >|||||||||||||||||||||||||||||||||||| -->
+<footer class="main-footer">
+    <div class="footer-top">
+        <div class="footer-logo">
+            <img src="images/icon/full_logo.svg" alt="EXSCENT Logo">
+        </div>
+    </div>
+</footer>
+</body>
+</html>
