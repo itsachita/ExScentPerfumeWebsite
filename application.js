@@ -31,6 +31,12 @@ router.get('/', (req, res) => {
     res.sendFile(path.join(`${__dirname}/html/main.html`))
 })
 
+router.get('/search', (req, res) => {
+    res.statusCode = 200;
+    console.log("Request at " + req.url);
+    res.sendFile(path.join(`${__dirname}/html/search.html`))
+})
+
 router.get('/about-us', (req, res) => {
     res.statusCode = 200;
     console.log("Request at " + req.url);
@@ -41,6 +47,24 @@ router.get('/admin_login', (req, res) => {
     res.statusCode = 200;
     console.log("Request at " + req.url);
     res.sendFile(path.join(`${__dirname}/html/login.html`))
+})
+
+router.get('/admin_main', (req, res) => {
+    res.statusCode = 200;
+    console.log("Request at " + req.url);
+    res.sendFile(path.join(`${__dirname}/html/prod-admin.html`))
+})
+
+router.get('/prod-config', (req, res) => {
+    res.statusCode = 200;
+    console.log("Request at " + req.url);
+    res.sendFile(path.join(`${__dirname}/html/prod-config.html`))
+})
+
+router.get('/prod-config-delete', (req, res) => {
+    res.statusCode = 200;
+    console.log("Request at " + req.url);
+    res.sendFile(path.join(`${__dirname}/html/prod-admin-delete.html`))
 })
 
 router.use((req, res, next) => {
