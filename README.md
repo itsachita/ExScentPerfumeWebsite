@@ -32,12 +32,12 @@ npm --version
    ```
    PORT=3000
    MYSQL_HOST=localhost
-   MYSQL_USERNAME=**root
-   MYSQL_PASSWORD=**your password
+   MYSQL_USERNAME=[root]
+   MYSQL_PASSWORD=[your password]
    MYSQL_DATABASE=ExScent
    FRAGELLA_API_KEY=find your own API ket from https://api.fragella.com/
    ```
-   Replace the values with your actual database credentials and desired port.
+   Replace the [text] with your information.
 
 ## Running the Project
 
