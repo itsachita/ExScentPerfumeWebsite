@@ -17,7 +17,7 @@
                 <img src="images/icon/logo.svg" alt="Logo" style="height: 45px;">
             </a>
             <nav class="admin-nav-links">
-                <a href="admin-main">DASHBOARD</a>
+                <a href="/prod-admin">DASHBOARD</a>
                 <a href="prod-admin">PRODUCT</a>
                 <a href="prod-order">ORDER</a>
                 <a href="prod-invoice">INVOICE</a>
@@ -25,10 +25,10 @@
         </div>
         
         <div class="admin-right-section">
-            <button class="admin-profile-btn">
+            <a href="/admin_login" class="admin-profile-btn">
                 <span class="material-symbols-outlined">account_circle</span>
-                <span>ADMIN/01</span>
-            </button>
+                <span id="admin-username-display">Hello</span>
+            </a>
             
             <a href="/" class="admin-logout-btn">
                 <span class="material-symbols-outlined">logout</span>
@@ -40,12 +40,12 @@
     <div class="admin-page-header">
         <h1>PRODUCT DISPLAY</h1>
         <div class="header-actions">
-            <a href="/admin_main" class="btn-confirm">
+            <a href="/prod-admin" class="btn-outline" style="color: #65C282; border-color: #65C282; padding: 8px 16px; font-size: 13px; height: 38px; box-sizing: border-box;">
                 <span class="material-symbols-outlined" style="font-size: 18px;">check</span> CONFIRM
             </a>
-            <a href="/prod-config" class="btn-solid">
-                + ADD PRODUCT
-            </a>
+            <button id="delete-selected-btn" class="btn-solid" style="background: #ff4444; border-color: #ff4444; padding: 8px 16px; font-size: 13px; height: 38px; box-sizing: border-box;">
+                <span class="material-symbols-outlined" style="font-size: 18px;">delete</span> DELETE SELECTED
+            </button>
         </div>
     </div>
 
@@ -80,16 +80,18 @@
                 <span>Filter By</span>
                 <div class="select-wrapper">
                     <select class="custom-select">
-                        <option>EDT</option>
-                        <option value="edp">EDP</option>
-                        <option value="parfum">Parfum</option>
+                        <option value="">All</option>
+                        <option value="EDT">EDT</option>
+                        <option value="EDP">EDP</option>
+                        <option value="Parfum">Parfum</option>
                     </select>
                 </div>
                 <div class="select-wrapper">
                     <select class="custom-select">
-                        <option>Unisex</option>
-                        <option value="feminine">Feminine</option>
-                        <option value="masculine">Masculine</option>
+                        <option value="">All</option>
+                        <option value="Unisex">Unisex</option>
+                        <option value="Feminine">Feminine</option>
+                        <option value="Masculine">Masculine</option>
                     </select>
                 </div>
                 <div class="select-wrapper">
@@ -102,153 +104,153 @@
         </div>
     </div>
 
-    <div class="admin-table">
+    <div class="admin-table" id="product-table">
         <div class="table-header">
             <div class="col-checkbox" style="width: 40px;"></div>
             <div class="col-product">Products</div>
             <div class="col-price">Prices / Unit</div>
-            <div class="col-stock">Stock</div>
             <div class="col-status">Status</div>
             <div class="col-configure">Configure</div>
         </div>
-
-        <div class="table-row">
-            <div class="col-checkbox" style="width: 40px;">
-                <label class="filter-item">
-                    <input type="checkbox">
-                </label>
-            </div>
-            <div class="col-product">
-                <div class="product-image-box">
-                    <img src="https://www.central.co.th/_next/image?url=https%3A%2F%2Fassets.central.co.th%2Ffile-assets%2FCDSPIM%2Fweb%2FImage%2FCDS9572%2FGIORGIO_ARMANI-MenFragranceArmaniCodeLeParfum75mL-CDS95721071-1.webp&w=1080&q=75" alt="GA">
-                </div>
-                <div class="product-details">
-                    <span class="product-code">GA-00010001</span>
-                    <span class="product-brand">Giorgio Armani</span>
-                    <span class="product-name">Code Parfum</span>
-                </div>
-                <div class="select-wrapper size-select-wrapper">
-                    <select class="size-select">
-                        <option>75ml</option>
-                        <option>50ml</option>
-                        <option>100ml</option>
-                    </select>
-                </div>
-            </div>
-            <div class="col-price">THB 5,568</div>
-            <div class="col-stock">120</div>
-            <div class="col-status">
-                <div class="status-select-wrapper">
-                    <span class="dot green"></span>
-                    <select class="status-select" onchange="this.previousElementSibling.className = 'dot ' + (this.value === 'active' ? 'green' : 'red')">
-                        <option value="active">Active</option>
-                        <option value="disabled">Disabled</option>
-                    </select>
-                </div>
-            </div>
-            <div class="col-configure">
-                <button class="btn-edit">
-                    <span class="material-symbols-outlined" style="font-size: 16px;">edit</span> Edit
-                </button>
-                <button class="btn-delete-icon">
-                    <span class="material-symbols-outlined" style="font-size: 18px;">delete</span>
-                </button>
-            </div>
-        </div>
-
-        <div class="table-row">
-            <div class="col-checkbox" style="width: 40px;">
-                <label class="filter-item">
-                    <input type="checkbox">
-                </label>
-            </div>
-            <div class="col-product">
-                <div class="product-image-box">
-                    <img src="https://www.central.co.th/_next/image?url=https%3A%2F%2Fassets.central.co.th%2Ffile-assets%2FCDSPIM%2Fweb%2FImage%2FCDS7482%2FTOMFORDBEAUTY-TUSCANLEATHER-CDS7482861-1.webp&w=1080&q=75" alt="TF">
-                </div>
-                <div class="product-details">
-                    <span class="product-code">TF-00010001</span>
-                    <span class="product-brand">Tom Ford</span>
-                    <span class="product-name">Oud Minerale</span>
-                </div>
-                <div class="select-wrapper size-select-wrapper">
-                    <select class="size-select">
-                        <option>100ml</option>
-                        <option>50ml</option>
-                        <option>75ml</option>
-                    </select>
-                </div>
-            </div>
-            <div class="col-price">THB 8,800</div>
-            <div class="col-stock">24</div>
-            <div class="col-status">
-                <div class="status-select-wrapper">
-                    <span class="dot green"></span>
-                    <select class="status-select" onchange="this.previousElementSibling.className = 'dot ' + (this.value === 'active' ? 'green' : 'red')">
-                        <option value="active">Active</option>
-                        <option value="disabled">Disabled</option>
-                    </select>
-                </div>
-            </div>
-            <div class="col-configure">
-                <button class="btn-edit">
-                    <span class="material-symbols-outlined" style="font-size: 16px;">edit</span> Edit
-                </button>
-                <button class="btn-delete-icon">
-                    <span class="material-symbols-outlined" style="font-size: 18px;">delete</span>
-                </button>
-            </div>
-        </div>
-
-        <div class="table-row">
-            <div class="col-checkbox" style="width: 40px;">
-                <label class="filter-item">
-                    <input type="checkbox">
-                </label>
-            </div>
-            <div class="col-product">
-                <div class="product-image-box">
-                    <img src="https://www.central.co.th/_next/image?url=https%3A%2F%2Fassets.central.co.th%2Ffile-assets%2FCDSPIM%2Fweb%2FImage%2FCDS2141%2FISSEYMIYAKE-MENFRAGRANCELEAUDISSEYPOURHOMMEEAUDEPARFUM125ML-CDS21412318-1.webp&w=1080&q=75" alt="LV">
-                </div>
-                <div class="product-details">
-                    <span class="product-code">LV-00010001</span>
-                    <span class="product-brand">Louis Vuitton</span>
-                    <span class="product-name">Imagination</span>
-                </div>
-                <div class="select-wrapper size-select-wrapper">
-                    <select class="size-select">
-                        <option>100ml</option>
-                        <option>50ml</option>
-                        <option>75ml</option>
-                    </select>
-                </div>
-            </div>
-            <div class="col-price">THB 12,500</div>
-            <div class="col-stock">50</div>
-            <div class="col-status">
-                <div class="status-select-wrapper">
-                    <span class="dot green"></span>
-                    <select class="status-select" onchange="this.previousElementSibling.className = 'dot ' + (this.value === 'active' ? 'green' : 'red')">
-                        <option value="active">Active</option>
-                        <option value="disabled">Disabled</option>
-                    </select>
-                </div>
-            </div>
-            <div class="col-configure">
-                <button class="btn-edit">
-                    <span class="material-symbols-outlined" style="font-size: 16px;">edit</span> Edit
-                </button>
-                <button class="btn-delete-icon">
-                    <span class="material-symbols-outlined" style="font-size: 18px;">delete</span>
-                </button>
-            </div>
+        <div id="table-body">
+            <!-- Products will be loaded here -->
         </div>
     </div>
 </main>
 
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const tableBody = document.getElementById('table-body');
+        const searchInput = document.querySelector('.search-input');
+        const searchBtn = document.querySelector('.btn-search');
+        const sortSelect = document.querySelectorAll('.custom-select')[0];
+        const concSelect = document.querySelectorAll('.custom-select')[1];
+        const genderSelect = document.querySelectorAll('.custom-select')[2];
+        const checkboxes = document.querySelectorAll('.filter-item input');
+        const deleteSelectedBtn = document.getElementById('delete-selected-btn');
 
+        const fetchProducts = async () => {
+            const q = searchInput.value;
+            const sort = sortSelect.value;
+            const concentration = concSelect.value;
+            const gender = genderSelect.value;
+            
+            const scopes = Array.from(checkboxes)
+                .filter(cb => cb.checked)
+                .map(cb => cb.parentElement.textContent.trim().toLowerCase().split(' ').join(''))
+                .join(',');
 
-<!-- |||||||||||||||||||||||||||||||< FOOTER APPEARANCE >|||||||||||||||||||||||||||||||||||| -->
+            let url = `/api/search?q=${encodeURIComponent(q)}&sort=${sort}&concentration=${concentration}&gender=${gender}`;
+            if (scopes) url += `&scopes=${scopes}`;
+
+            try {
+                const response = await fetch(url);
+                const products = await response.json();
+                renderTable(products);
+            } catch (error) {
+                console.error('Error fetching products:', error);
+            }
+        };
+
+        const renderTable = (products) => {
+            tableBody.innerHTML = '';
+            if (products.length === 0) {
+                tableBody.innerHTML = '<div class="table-row"><div class="col-product">No products found.</div></div>';
+                return;
+            }
+            products.forEach(product => {
+                const row = `
+                    <div class="table-row">
+                        <div class="col-checkbox" style="width: 40px;">
+                            <label class="filter-item">
+                                <input type="checkbox" data-id="${product.product_id}">
+                            </label>
+                        </div>
+                        <div class="col-product">
+                            <div class="product-image-box">
+                                <img src="${product.image_url || 'https://via.placeholder.com/60/FFFFFF/000000?text=No+Image'}" alt="${product.product_name}">
+                            </div>
+                            <div class="product-details">
+                                <span class="product-code" style="opacity: 0.6; font-size: 11px;">ID: ${product.product_id}</span>
+                                <span class="product-brand">${product.brand}</span>
+                                <span class="product-name">${product.product_name}</span>
+                            </div>
+                        </div>
+                        <div class="col-price">THB ${parseFloat(product.product_price).toLocaleString()}</div>
+                        <div class="col-status">
+                            <div class="status-select-wrapper">
+                                <span class="dot ${(product.product_status || '').toLowerCase().trim() === 'active' ? 'green' : 'red'}"></span>
+                                <select class="status-select" onchange="updateStatus('${product.product_id}', this.value, this)">
+                                    <option value="Active" ${product.product_status === 'Active' ? 'selected' : ''}>Active</option>
+                                    <option value="Disabled" ${product.product_status === 'Disabled' ? 'selected' : ''}>Disabled</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-configure">
+                            <button class="btn-edit" onclick="window.location.href='/prod-config?id=${product.product_id}'">
+                                <span class="material-symbols-outlined" style="font-size: 16px;">edit</span> Edit
+                            </button>
+                        </div>
+                    </div>
+                `;
+                tableBody.insertAdjacentHTML('beforeend', row);
+            });
+        };
+
+        deleteSelectedBtn.addEventListener('click', async () => {
+            const checkedCheckboxes = document.querySelectorAll('.col-checkbox input:checked');
+            const idsToDelete = Array.from(checkedCheckboxes).map(cb => cb.getAttribute('data-id')).filter(id => id);
+
+            if (idsToDelete.length === 0) return alert('Please select at least one product to delete.');
+            if (!confirm(`Are you sure you want to delete ${idsToDelete.length} products?`)) return;
+
+            try {
+                const results = await Promise.all(idsToDelete.map(id => 
+                    fetch(`/api/perfume/${id}`, { method: 'DELETE' }).then(r => r.json())
+                ));
+
+                const failures = results.filter(r => !r.success);
+                if (failures.length === 0) {
+                    alert('Successfully deleted selected products.');
+                } else {
+                    alert(`Deleted some products, but ${failures.length} failed.`);
+                }
+                fetchProducts();
+            } catch (error) {
+                console.error('Error in bulk delete:', error);
+                alert('An error occurred during deletion.');
+            }
+        });
+
+        window.updateStatus = async (productId, newStatus, selectElement) => {
+            try {
+                const response = await fetch(`/api/perfume/${productId}/status`, {
+                    method: 'PATCH',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ status: newStatus })
+                });
+                const result = await response.json();
+                if (result.success) {
+                    const dot = selectElement.previousElementSibling;
+                    dot.className = 'dot ' + (newStatus.toLowerCase() === 'active' ? 'green' : 'red');
+                } else {
+                    alert('Failed to update status');
+                }
+            } catch (error) {
+                console.error('Error updating status:', error);
+            }
+        };
+
+        searchBtn.addEventListener('click', fetchProducts);
+        sortSelect.addEventListener('change', fetchProducts);
+        concSelect.addEventListener('change', fetchProducts);
+        genderSelect.addEventListener('change', fetchProducts);
+        checkboxes.forEach(cb => cb.addEventListener('change', fetchProducts));
+
+        fetchProducts();
+    });
+</script>
+
 <footer class="main-footer">
     <div class="footer-top">
         <div class="footer-logo">
@@ -256,5 +258,9 @@
         </div>
     </div>
 </footer>
+<script>
+    const adminUsername = localStorage.getItem('adminUsername');
+    document.getElementById('admin-username-display').textContent = adminUsername ? 'Hello, ' + adminUsername : 'Hello';
+</script>
 </body>
 </html>

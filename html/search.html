@@ -39,82 +39,42 @@
             <div class="filter-row">
                 <span class="search-for-text">SEARCH SCOPED BY</span>
                 <div class="filter-options">
-                    <label class="filter-item"><input type="checkbox"> BRANDS</label>
-                    <label class="filter-item"><input type="checkbox"> PRODUCTS</label>
-                    <label class="filter-item"><input type="checkbox"> FRAGRANCE NOTES</label>
+                    <label class="filter-item"><input type="checkbox" id="scope-brands" value="brands" checked> BRANDS</label>
+                    <label class="filter-item"><input type="checkbox" id="scope-products" value="products" checked> PRODUCTS</label>
+                    <label class="filter-item"><input type="checkbox" id="scope-notes" value="notes" checked> FRAGRANCE NOTES</label>
                 </div>
-                <form class="main-search-input" action="search.html" method="GET">
-                    <input type="text" name="q" placeholder="SEARCH">
+                <form class="main-search-input" id="search-form" action="#" method="GET">
+                    <input type="text" name="q" id="search-input" placeholder="SEARCH">
                     <button type="submit" class="search-btn">SEARCH</button>
                 </form>
             </div>
 
             <div class="sort-filter-row">
                 <label>Sort By</label>
-                <select class="custom-select">
-                    <option>Select</option>
-                    <option>Price</option>
-                    <option>A-Z</option>
-                    <option>Rating</option>
+                <select class="custom-select" id="sort-select">
+                    <option value="">Select</option>
+                    <option value="Price">Price</option>
+                    <option value="A-Z">A-Z</option>
+                    <option value="Rating">Rating</option>
                 </select>
                 <label style="margin-left:15px;">Filter By</label>
-                <select class="custom-select">
-                    <option>EDT</option>
-                    <option>EDP</option>
-                    <option>Parfum</option>
+                <select class="custom-select" id="filter-conc">
+                    <option value="">Filter By</option>
+                    <option value="EDT">EDT</option>
+                    <option value="EDP">EDP</option>
+                    <option value="Parfum">Parfum</option>
                 </select>
-                <select class="custom-select">
-                    <option>Unisex</option>
-                    <option>Feminine</option>
-                    <option>Masculine</option>
+                <select class="custom-select" id="filter-gender">
+                    <option value="">Filter By</option>
+                    <option value="Unisex">Unisex</option>
+                    <option value="Feminine">Feminine</option>
+                    <option value="Masculine">Masculine</option>
                 </select>
             </div>
         </div>
 
-        <section class="product-pannel">
-            <div class="product-item">
-                <div class="image-box">
-                    <img src="https://www.central.co.th/_next/image?url=https%3A%2F%2Fassets.central.co.th%2Ffile-assets%2FCDSPIM%2Fweb%2FImage%2FCDS1000%2FTOMFORDBEAUTY-UNISEXPERFUMEVANILLA50ML-CDS10007907-1.webp&w=1080&q=75" alt="Vanilla Sex">
-                </div>
-                <div class="product-info">
-                    <p class="brand">Tom Ford</p>
-                    <p class="name">Vanilla Sex</p>
-                    <p class="price">THB 12,485</p>
-                </div>
-            </div>
-
-            <div class="product-item">
-                <div class="image-box">
-                    <img src="https://www.central.co.th/_next/image?url=https%3A%2F%2Fassets.central.co.th%2Ffile-assets%2FCDSPIM%2Fweb%2FImage%2FCDS9885%2Fazzaro-menfragranceazzarowantededp100ml-CDS98856305-2.webp&w=1080&q=75" alt="The Most Wanted Parfum">
-                </div>
-                <div class="product-info">
-                    <p class="brand">Azzaro</p>
-                    <p class="name">The Most Wanted Eau De Parfum</p>
-                    <p class="price">THB 4,730</p>
-                </div>
-            </div>
-
-            <div class="product-item">
-                <div class="image-box">
-                    <img src="https://www.central.co.th/_next/image?url=https%3A%2F%2Fassets.central.co.th%2Ffile-assets%2FCDSPIM%2Fweb%2FImage%2FCDS8712%2FVALENTINO-UomoEDTMale100mL-CDS87122718-1.webp&w=1080&q=75" alt="Valentino Uomo Born In Roma">
-                </div>
-                <div class="product-info">
-                    <p class="brand">Valentino</p>
-                    <p class="name">Valentino Uomo EDT</p>
-                    <p class="price">THB 4,800</p>
-                </div>
-            </div>
-
-            <div class="product-item">
-                <div class="image-box">
-                    <img src="https://www.central.co.th/_next/image?url=https%3A%2F%2Fassets.central.co.th%2Ffile-assets%2FCDSPIM%2Fweb%2FImage%2FCDS9495%2FBOSSHUGOBOSS-MenFragranceTheScentMagneticEDPForMen100mL-CDS94953152-1.webp&w=1080&q=75" alt="Boss The Scent For Him">
-                </div>
-                <div class="product-info">
-                    <p class="brand">Hugo Boss</p>
-                    <p class="name">Boss The Scent For Him Magnetic</p>
-                    <p class="price">THB 3,494</p>
-                </div>
-            </div>
+        <section class="product-pannel" id="search-results-container">
+            <!-- Products will be injected here dynamically -->
         </section>
 
         <section class="product-pannel">
@@ -122,62 +82,10 @@
                 <h1>YOU MIGHT BE INTERESTED IN</h1>
             </div>
         
-            <div class="product-scroll">
-                <div class="product-item">
-                    <div class="image-box">
-                        <img src="https://www.central.co.th/_next/image?url=https%3A%2F%2Fassets.central.co.th%2Ffile-assets%2FCDSPIM%2Fweb%2FImage%2FCDS9572%2FGIORGIO_ARMANI-MenFragranceArmaniCodeLeParfum75mL-CDS95721071-1.webp&w=1080&q=75" alt="Giorgio Armani">
-                    </div>
-                    <div class="product-info">
-                        <p class="brand">Giorgio Armani</p>
-                        <p class="name">Armani Code Parfum</p>
-                        <p class="price">THB 5,568</p>
-                    </div>
-                </div>
-
-                <div class="product-item">
-                    <div class="image-box">
-                        <img src="https://www.central.co.th/_next/image?url=https%3A%2F%2Fassets.central.co.th%2Ffile-assets%2FCDSPIM%2Fweb%2FImage%2FCDS1682%2FPRADA-PradaLunaRossaBlackEdp50mLMale-CDS16821439-1.webp&w=1080&q=75" alt="Prada">
-                    </div>
-                    <div class="product-info">
-                        <p class="brand">Prada</p>
-                        <p class="name">Luna Rossa Black</p>
-                        <p class="price">THB 5,600</p>
-                    </div>
-                </div>
-
-                <div class="product-item">
-                    <div class="image-box">
-                        <img src="https://www.central.co.th/_next/image?url=https%3A%2F%2Fassets.central.co.th%2Ffile-assets%2FCDSPIM%2Fweb%2FImage%2FCDS1582%2FNARCISORODRIGUEZ-FORHIMBLEUNOIREDP100ML-CDS15823441-1.webp&w=1080&q=75" alt="Narciso Rodriguez">
-                    </div>
-                    <div class="product-info">
-                        <p class="brand">Narciso Rodriguez</p>
-                        <p class="name">Bleu Noir Eau De Parfum</p>
-                        <p class="price">THB 4,800</p>
-                    </div>
-                </div>
-
-                <div class="product-item">
-                    <div class="image-box">
-                        <img src="https://www.central.co.th/_next/image?url=https%3A%2F%2Fassets.central.co.th%2Ffile-assets%2FCDSPIM%2Fweb%2FImage%2FCDS7482%2FTOMFORDBEAUTY-TUSCANLEATHER-CDS7482861-1.webp&w=1080&q=75" alt="Tom Ford">
-                    </div>
-                    <div class="product-info">
-                        <p class="brand">Tom Ford</p>
-                        <p class="name">Tuscan Leather</p>
-                        <p class="price">THB 10,485</p>
-                    </div>
-                </div>
-
-                <div class="product-item">
-                    <div class="image-box">
-                        <img src="https://www.central.co.th/_next/image?url=https%3A%2F%2Fassets.central.co.th%2Ffile-assets%2FCDSPIM%2Fweb%2FImage%2FCDS2141%2FISSEYMIYAKE-MENFRAGRANCELEAUDISSEYPOURHOMMEEAUDEPARFUM125ML-CDS21412318-1.webp&w=1080&q=75" alt="Issey Miyake">
-                    </div>
-                    <div class="product-info">
-                        <p class="brand">Issey Miyake</p>
-                        <p class="name">L'EAU D'ISSEY POUR HOMME Eau De Parfum</p>
-                        <p class="price">THB 3,500</p>
-                    </div>
-                </div>
+            <div class="product-scroll" id="recommendations">
+                <!-- Recommendations will load here -->
             </div>
+        </section>
         </section>
     </main>
 
@@ -215,17 +123,123 @@
     </footer>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            
             const urlParams = new URLSearchParams(window.location.search);
-            const searchQuery = urlParams.get('q');
+            const initialQuery = urlParams.get('q');
 
-            if (searchQuery) {
-                const mainSearchInput = document.querySelector('.main-search-input input');
-                
-                if (mainSearchInput) {
-                    mainSearchInput.value = searchQuery;
-                }
+            const searchInput = document.getElementById('search-input');
+            const searchForm = document.getElementById('search-form');
+            const resultsContainer = document.getElementById('search-results-container');
+
+            const sortSelect = document.getElementById('sort-select');
+            const filterConc = document.getElementById('filter-conc');
+            const filterGender = document.getElementById('filter-gender');
+
+            const scopeCheckboxes = [
+                document.getElementById('scope-brands'),
+                document.getElementById('scope-products'),
+                document.getElementById('scope-notes')
+            ];
+
+            if (initialQuery && searchInput) {
+                searchInput.value = initialQuery;
             }
+
+            const fetchProducts = async () => {
+                const q = searchInput.value;
+                const sort = sortSelect.value;
+                const concentration = filterConc.value;
+                const gender = filterGender.value;
+
+                const scopes = scopeCheckboxes
+                    .filter(cb => cb.checked)
+                    .map(cb => cb.value)
+                    .join(',');
+
+                const params = new URLSearchParams();
+                if (q) params.append('q', q);
+                if (scopes) params.append('scopes', scopes);
+                if (sort) params.append('sort', sort);
+                if (concentration) params.append('concentration', concentration);
+                if (gender) params.append('gender', gender);
+                params.append('status', 'Active');
+
+                try {
+                    const response = await fetch(`/api/search?${params.toString()}`);
+                    const products = await response.json();
+                    
+                    // Update URL without reloading
+                    const newUrl = `${window.location.pathname}?${params.toString()}`;
+                    window.history.pushState({ path: newUrl }, '', newUrl);
+                    
+                    renderProducts(products);
+                } catch (error) {
+                    console.error('Error fetching products:', error);
+                    resultsContainer.innerHTML = '<p style="color: white;">Error loading products.</p>';
+                }
+            };
+
+            const renderProducts = (products) => {
+                resultsContainer.innerHTML = '';
+                
+                if (products.length === 0) {
+                    resultsContainer.innerHTML = '<p style="color: white; width: 100%; text-align: center; margin-top: 50px; font-size: 20px;">No products found.</p>';
+                    return;
+                }
+
+                products.forEach(product => {
+                    const productHtml = `
+                        <div class="product-item" onclick="window.location.href='/product?id=${product.product_id}'" style="cursor: pointer;">
+                            <div class="image-box">
+                                <img src="${product.image_url || 'https://via.placeholder.com/300x400?text=No+Image'}" alt="${product.product_name}">
+                            </div>
+                            <div class="product-info">
+                                <p class="brand">${product.brand}</p>
+                                <p class="name">${product.product_name}</p>
+                                <p class="price">THB ${parseFloat(product.product_price).toLocaleString('en-US', {minimumFractionDigits: 2})}</p>
+                            </div>
+                        </div>
+                    `;
+                    resultsContainer.insertAdjacentHTML('beforeend', productHtml);
+                });
+            };
+
+            // Event Listeners
+            searchForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                fetchProducts();
+            });
+
+            sortSelect.addEventListener('change', fetchProducts);
+            filterConc.addEventListener('change', fetchProducts);
+            filterGender.addEventListener('change', fetchProducts);
+            scopeCheckboxes.forEach(cb => cb.addEventListener('change', fetchProducts));
+
+            const fetchRecommendations = async () => {
+                try {
+                    const res = await fetch('/api/search?sort=Rating&status=Active');
+                    const products = await res.json();
+                    const container = document.getElementById('recommendations');
+                    
+                    container.innerHTML = products.map(p => `
+                        <div class="product-item" onclick="window.location.href='/product?id=${p.product_id}'" style="cursor: pointer;">
+                            <div class="image-box">
+                                <img src="${p.image_url || 'https://via.placeholder.com/300x400?text=No+Image'}" alt="${p.product_name}">
+                            </div>
+                            <div class="product-info">
+                                <p class="brand">${p.brand}</p>
+                                <p class="name">${p.product_name}</p>
+                                <p class="price">THB ${parseFloat(p.product_price).toLocaleString('en-US', {minimumFractionDigits: 2})}</p>
+                            </div>
+                        </div>
+                    `).join('');
+                } catch (error) {
+                    console.error('Error fetching recommendations:', error);
+                }
+            };
+
+            // Initial fetch
+            fetchProducts();
+            fetchRecommendations();
         });
     </script>
 </body>
