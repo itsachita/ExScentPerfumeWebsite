@@ -1,110 +1,88 @@
-# ExScent Perfume Website 🌟
+# ExScent Perfume Website
 
-A premium, full-stack web application for an exclusive perfume boutique. This project features a dynamic customer-facing storefront and a comprehensive administrative dashboard for product management.
+This project is part of ITCS223: Introduction to Web Development, Faculty of Information and Communication Technology, Mahidol University.
 
-Built as part of **ITCS223: Introduction to Web Development**, Faculty of Information and Communication Technology, Mahidol University.
+## Prerequisites
 
----
+Before setting up this project, ensure you have the following installed on your system:
 
-## ✨ Features
+- **Node.js** (v14 or higher) - [Download](https://nodejs.org/)
+- **npm** (v6 or higher) - Comes bundled with Node.js
 
-### 🛍️ Customer Storefront
-- **Dynamic Homepage**: High-performance display of products with "More to Explore" sections.
-- **Smart Recommendations**: "You Might Be Interested In" section showing top-rated fragrances.
-- **Advanced Filtering**: Sort and filter products by brand, concentration (EDT/EDP/Parfum), gender, and price.
-- **Responsive Design**: Elegant, mobile-first UI with smooth transitions and premium aesthetics.
+To verify installations, run:
+```bash
+node --version
+npm --version
+```
 
-### 🛡️ Admin Dashboard
-- **Secure Authentication**: Environment-based login for administrators.
-- **Product Management**: Full CRUD (Create, Read, Update, Delete) operations for perfumes.
-- **Real-time Configuration**: Update product details, pricing, and stock status instantly.
-- **Image Management**: Support for multiple product images with primary image selection.
+## Installation
 
----
-
-## 🛠️ Technology Stack
-
-- **Frontend**: HTML5, Vanilla CSS3 (Custom Design System), JavaScript (ES6+)
-- **Backend**: Node.js, Express.js
-- **Database**: MySQL
-- **Environment**: Dotenv for secure configuration
-- **Dev Tools**: Nodemon for hot reloading
-
----
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-- **Node.js** (v18.0.0 or higher)
-- **npm** (v9.0.0 or higher)
-- **MySQL Server** (v8.0 or higher)
-
-### Installation
-
-1. **Clone the repository**
+1. **Clone the repository:**
    ```bash
    git clone https://github.com/itsachita/ExScentPerfumeWebsite.git
    cd ExScentPerfumeWebsite
    ```
 
-2. **Install dependencies**
+2. **Install dependencies:**
    ```bash
    npm install
    ```
+   This will install all required npm packages listed in `package.json`:
+   - express (web framework)
+   - mysql2 (MySQL database driver)
+   - dotenv (environment variable management)
+   - nodemon (development auto-reload)
 
-3. **Database Setup**
-   - Create a new MySQL database named `ExScent`.
-   - Import the schema and seed data from `database/ExScent.sql`.
-   ```bash
-   mysql -u your_user -p ExScent < database/ExScent.sql
+3. **Configure environment variables:**
+   Create a `.env` file in the root directory with the following variables:
    ```
-
-4. **Environment Configuration**
-   Create a `.env` file in the root directory:
-   ```env
    PORT=3000
    MYSQL_HOST=localhost
-   MYSQL_USERNAME=your_username
-   MYSQL_PASSWORD=your_password
+   MYSQL_USERNAME=itcs223
+   MYSQL_PASSWORD=itCS223**
    MYSQL_DATABASE=ExScent
-   
-   # Admin Credentials (JSON format)
-   ADMIN_CREDENTIALS=[{"username":"admin","password":"password123"}]
-   
-   # Optional: Fragella API Key for external sync
-   FRAGELLA_API_KEY=your_api_key
+   FRAGELLA_API_KEY=find your own API ket from https://api.fragella.com/
    ```
+   Replace the values with your actual database credentials and desired port.
 
----
+## Running the Project
 
-## 🏃‍♂️ Running the Application
-
-Start the development server with auto-reload:
+Start the development server:
 ```bash
 npm start
 ```
 
-The application will be available at `http://localhost:3000`.
+This will run the application using nodemon, which automatically restarts the server when files change. The server will be available at `http://localhost:3000` (or the port specified in your `.env` file).
 
----
+## Project Structure
 
-## 📂 Project Structure
-
-```text
+```
 ExScentPerfumeWebsite/
-├── application.js         # Express server & API routes
-├── database/
-│   └── ExScent.sql        # Database schema and seed data
-├── html/                  # Frontend assets
-│   ├── css/               # Custom CSS design systems
-│   ├── images/            # Product and UI assets
-│   ├── main.html          # Storefront entry
-│   ├── login.html         # Admin login portal
-│   ├── prod-admin.html    # Admin dashboard
-│   └── product.html       # Product detail page
-├── .env                   # Environment variables (Private)
-└── package.json           # Dependencies and scripts
+├── application.js         # Main application entry point (Express server)
+├── database/              # Database scripts and migrations
+│   └── ExScent.sql        # Main SQL schema and seed data
+├── html/                  # Frontend assets and views
+│   ├── css/               # Stylesheets
+│   │   ├── style.css      # Customer storefront styles
+│   │   └── style-admin.css # Admin dashboard styles
+│   ├── images/            # Image assets (icons, products, ads)
+│   ├── main.html          # Main storefront page
+│   ├── product.html       # Product details page
+│   ├── search.html        # Search and filter results page
+│   ├── login.html         # Admin login page
+│   ├── prod-admin.html    # Admin dashboard (Product management)
+│   ├── prod-config.html   # Product add/edit configuration
+│   ├── prod-admin-delete.html # Bulk product management
+│   └── error.html         # Custom 404/Error page
+├── services/              # Backend service modules
+│   └── fragellaService.js # External API integration for perfume data
+├── .env                   # Environment configuration (Local only)
+├── package.json           # Project dependencies and scripts
+└── README.md              # Project documentation
 ```
 
----
+## Notes
+
+- The `.env` file, `node_modules/`, and `package-lock.json` are not included in the repository. These will be generated locally after running `npm install`.
+- Always keep your `.env` file secure and never commit it to version control.
+- For production deployment, ensure you update your database credentials and environment variables appropriately.
