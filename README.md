@@ -77,12 +77,11 @@ ExScentPerfumeWebsite/
 ├── services/              # Backend service modules
 │   └── fragellaService.js # External API integration for perfume data
 ├── .env                   # Environment configuration (Local only)
-├── package.json           # Project dependencies and scripts
 └── README.md              # Project documentation
 ```
 
 ## Notes
 
-- The `.env` file, `node_modules/`, and `package-lock.json` are not included in the repository. These will be generated locally after running `npm install`.
+- The `.env` file, `node_modules/`, `package.json`, and `package-lock.json` are not included in the repository. These will be generated locally after running `npm install`.
 - Always keep your `.env` file secure and never commit it to version control.
 - For production deployment, ensure you update your database credentials and environment variables appropriately.
