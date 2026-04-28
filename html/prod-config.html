@@ -44,7 +44,6 @@
     </div>
 
     <div class="config-container">
-        <!-- Left Column: Images -->
         <div class="config-left">
             <h2 class="config-section-title">PRODUCT IMAGE</h2>
             
@@ -67,7 +66,6 @@
             </p>
         </div>
 
-        <!-- Right Column: Form -->
         <div class="config-right">
             <h2 class="config-section-title">GENERAL INFORMATION</h2>
             
@@ -143,7 +141,6 @@
 
             <h2 class="config-section-title" style="margin-top: 30px;">PRICING & STOCK</h2>
             <div id="variants-container">
-                <!-- Variant rows will be injected here -->
             </div>
             
             <button class="btn-add-square" type="button" onclick="addVariantRow()" style="margin-top: 10px;">
@@ -229,7 +226,7 @@
                     if (variants.length > 0) {
                         variants.forEach(v => addVariantRow(v.volume, v.price, v.stock));
                     } else {
-                        addVariantRow(); // Add one empty row
+                        addVariantRow();
                     }
                 }
             } catch (err) {
@@ -238,7 +235,7 @@
         } else {
             const newId = Math.floor(Math.random() * 9000000000000) + 1000000000000;
             document.getElementById('product_id').value = newId;
-            addVariantRow(); // Add one empty row by default
+            addVariantRow();
         }
 
         window.uploadImage = (index) => {

@@ -413,28 +413,26 @@ router.get('/admin_login', (req, res) => {
 router.post('/admin_login', (req, res) => {
     const { username, password } = req.body;
     
-    let admins = [];
-    try {
-        admins = JSON.parse(process.env.ADMIN_CREDENTIALS || '[]');
-    } catch (e) {
-        console.error("Failed to parse ADMIN_CREDENTIALS from .env:", e);
-        return res.status(500).send("Server configuration error");
-    }
-
-    const match = admins.find(a => a.username === username && a.password === password);
-
-    if (match) {
-        console.log("Login successful for user:", username);
-        res.redirect('/prod-admin');
-    } else {
-        console.log("Login failed for user:", username);
-        res.status(401).send(`
-            <script>
-                alert('Invalid username or password');
-                window.location.href = '/admin_login';
-            </script>
-        `);
-    }
+    const query = 'SELECT * FROM Admin_login WHERE username = ? AND password = ?';
+    connection.query(query, [username, password], (err, results) => {
+        if (err) {
+            console.error("Database error during login:", err);
+            return res.status(500).send("Internal Server Error");
+        }
+        
+        if (results.length > 0) {
+            console.log("Login successful for user:", username);
+            res.redirect('/prod-admin');
+        } else {
+            console.log("Login failed for user:", username);
+            res.status(401).send(`
+                <script>
+                    alert('Invalid username or password');
+                    window.location.href = '/admin_login';
+                </script>
+            `);
+        }
+    });
 })
 
 router.get('/prod-admin', (req, res) => {

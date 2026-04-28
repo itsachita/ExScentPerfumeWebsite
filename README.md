@@ -1,83 +1,110 @@
-# ExScent Perfume Website
+# ExScent Perfume Website 🌟
 
-This project is part of ITCS223: Introduction to Web Development, Faculty of Information and Communication Technology, Mahidol University.
+A premium, full-stack web application for an exclusive perfume boutique. This project features a dynamic customer-facing storefront and a comprehensive administrative dashboard for product management.
 
-## Prerequisites
+Built as part of **ITCS223: Introduction to Web Development**, Faculty of Information and Communication Technology, Mahidol University.
 
-Before setting up this project, ensure you have the following installed on your system:
+---
 
-- **Node.js** (v14 or higher) - [Download](https://nodejs.org/)
-- **npm** (v6 or higher) - Comes bundled with Node.js
+## ✨ Features
 
-To verify installations, run:
-```bash
-node --version
-npm --version
-```
+### 🛍️ Customer Storefront
+- **Dynamic Homepage**: High-performance display of products with "More to Explore" sections.
+- **Smart Recommendations**: "You Might Be Interested In" section showing top-rated fragrances.
+- **Advanced Filtering**: Sort and filter products by brand, concentration (EDT/EDP/Parfum), gender, and price.
+- **Responsive Design**: Elegant, mobile-first UI with smooth transitions and premium aesthetics.
 
-## Installation
+### 🛡️ Admin Dashboard
+- **Secure Authentication**: Environment-based login for administrators.
+- **Product Management**: Full CRUD (Create, Read, Update, Delete) operations for perfumes.
+- **Real-time Configuration**: Update product details, pricing, and stock status instantly.
+- **Image Management**: Support for multiple product images with primary image selection.
 
-1. **Clone the repository:**
+---
+
+## 🛠️ Technology Stack
+
+- **Frontend**: HTML5, Vanilla CSS3 (Custom Design System), JavaScript (ES6+)
+- **Backend**: Node.js, Express.js
+- **Database**: MySQL
+- **Environment**: Dotenv for secure configuration
+- **Dev Tools**: Nodemon for hot reloading
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- **Node.js** (v18.0.0 or higher)
+- **npm** (v9.0.0 or higher)
+- **MySQL Server** (v8.0 or higher)
+
+### Installation
+
+1. **Clone the repository**
    ```bash
    git clone https://github.com/itsachita/ExScentPerfumeWebsite.git
    cd ExScentPerfumeWebsite
    ```
 
-2. **Install dependencies:**
+2. **Install dependencies**
    ```bash
    npm install
    ```
-   This will install all required npm packages listed in `package.json`:
-   - express (web framework)
-   - mysql2 (MySQL database driver)
-   - dotenv (environment variable management)
-   - nodemon (development auto-reload)
 
-3. **Configure environment variables:**
-   Create a `.env` file in the root directory with the following variables:
+3. **Database Setup**
+   - Create a new MySQL database named `ExScent`.
+   - Import the schema and seed data from `database/ExScent.sql`.
+   ```bash
+   mysql -u your_user -p ExScent < database/ExScent.sql
    ```
-   DB_HOST=your_database_host
-   DB_USER=your_database_user
-   DB_PASSWORD=your_database_password
-   DB_NAME=your_database_name
+
+4. **Environment Configuration**
+   Create a `.env` file in the root directory:
+   ```env
    PORT=3000
+   MYSQL_HOST=localhost
+   MYSQL_USERNAME=your_username
+   MYSQL_PASSWORD=your_password
+   MYSQL_DATABASE=ExScent
+   
+   # Admin Credentials (JSON format)
+   ADMIN_CREDENTIALS=[{"username":"admin","password":"password123"}]
+   
+   # Optional: Fragella API Key for external sync
+   FRAGELLA_API_KEY=your_api_key
    ```
-   Replace the values with your actual database credentials and desired port.
 
-## Running the Project
+---
 
-Start the development server:
+## 🏃‍♂️ Running the Application
+
+Start the development server with auto-reload:
 ```bash
 npm start
 ```
 
-This will run the application using nodemon, which automatically restarts the server when files change. The server will be available at `http://localhost:3000` (or the port specified in your `.env` file).
+The application will be available at `http://localhost:3000`.
 
-## Project Structure
+---
 
-```
+## 📂 Project Structure
+
+```text
 ExScentPerfumeWebsite/
-├── application.js         # Main application entry point
-├── package.json           # Project dependencies and scripts
-├── README.md              # This file
-├── html/
-│   ├── main.html          # Main page
-│   ├── error.html         # Error page
-│   ├── style.css          # Stylesheet
-│   └── images/            # Image assets
-│       ├── header/        # Header images
-│       ├── footer/        # Footer images
-│       ├── products/      # Product images
-│       └── product-ad/    # Product advertisement images
+├── application.js         # Express server & API routes
+├── database/
+│   └── ExScent.sql        # Database schema and seed data
+├── html/                  # Frontend assets
+│   ├── css/               # Custom CSS design systems
+│   ├── images/            # Product and UI assets
+│   ├── main.html          # Storefront entry
+│   ├── login.html         # Admin login portal
+│   ├── prod-admin.html    # Admin dashboard
+│   └── product.html       # Product detail page
+├── .env                   # Environment variables (Private)
+└── package.json           # Dependencies and scripts
 ```
 
-## Notes
-
-- The `.env` file, `node_modules/`, and `package-lock.json` are not included in the repository. These will be generated locally after running `npm install`.
-- Always keep your `.env` file secure and never commit it to version control.
-- For production deployment, ensure you update your database credentials and environment variables appropriately.
-
-
-## Remarks
-
-- This README.md file is wrote via AI to ensure that no detail is missing out.
+---

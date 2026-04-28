@@ -507,7 +507,6 @@ body {
     opacity: 1;
 }
 
-/* Configuration Page Layout */
 .config-container {
     display: grid;
     grid-template-columns: 1fr 3fr;
@@ -636,7 +635,6 @@ body {
     font-size: 14px;
 }
 
-/* Dark Select (Concentration, Gender) */
 .config-select-dark-wrapper {
     position: relative;
     width: 100%;
@@ -668,7 +666,6 @@ body {
     pointer-events: none;
 }
 
-/* Add Row Button */
 .btn-add-square {
     background-color: #5A5A5A;
     border: none;

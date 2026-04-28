@@ -45,7 +45,6 @@
                     <img src="https://via.placeholder.com/600x600?text=Loading..." alt="Product Image">
                 </div>
                 <div class="thumbnail-list">
-                    <!-- Thumbnails will load here -->
                 </div>
             </div>
 
@@ -96,7 +95,6 @@
             </div>
         
             <div class="product-scroll">
-                <!-- Recommendations will load here -->
             </div>
         </section>
 
@@ -158,7 +156,6 @@
                     const images = data.images;
                     const variants = data.variants || [];
 
-                    // Update Basic Info
                     document.title = `${product.product_name} - ExScent`;
                     document.querySelector('.product-title').textContent = product.product_name;
                     
@@ -168,7 +165,6 @@
                     const priceSizeContainer = document.querySelector('.price-size-display');
                     priceSizeContainer.innerHTML = `THB ${parseFloat(displayPrice).toLocaleString()} <span class="divider">|</span> ${displayVolume} ml`;
 
-                    // Update Variants (Volume buttons)
                     const sizeContainer = document.querySelector('.size-options');
                     if (variants.length > 0) {
                         sizeContainer.innerHTML = variants.map((v, idx) => `
@@ -181,7 +177,6 @@
                         sizeContainer.innerHTML = '<p style="color: rgba(255,255,255,0.5);">No sizes available</p>';
                     }
 
-                    // Update Description / Notes
                     const descContainer = document.querySelector('.product-desc');
                     const formattedVotes = (product.votes || 0).toLocaleString();
                     descContainer.innerHTML = `
@@ -192,9 +187,8 @@
                         <p style="margin-top: 10px; opacity: 0.8; white-space: pre-wrap;">${product.product_detail || ''}</p>
                     `;
 
-                    // Update Concentration Dots
                     const dots = document.querySelector('.dots');
-                    let solidCount = 1; // Default for Cologne
+                    let solidCount = 1;
                     const conc = (product.concentration || '').toUpperCase();
                     
                     if (conc.includes('EXTRAIT')) solidCount = 5;
@@ -208,7 +202,6 @@
                         dots.innerHTML += `<div class="dot ${i < solidCount ? 'solid' : 'outline'}"></div>`;
                     }
 
-                    // Update Gallery
                     const mainImg = document.querySelector('.main-image img');
                     const thumbList = document.querySelector('.thumbnail-list');
                     
@@ -224,7 +217,6 @@
                         thumbList.innerHTML = '';
                     }
 
-                    // Fetch Recommendations
                     fetchRecommendations();
 
                 } catch (error) {
@@ -267,7 +259,6 @@
 
             fetchProductDetail();
 
-            // Quantity selector logic
             const minusBtn = document.querySelector('.qty-selector .qty-btn:first-child');
             const plusBtn = document.querySelector('.qty-selector .qty-btn:last-child');
             const qtyNumDisplay = document.querySelector('.qty-num');
@@ -283,7 +274,6 @@
                 });
             }
             
-            // Size buttons
             const sizeBtns = document.querySelectorAll('.size-btn');
             sizeBtns.forEach(btn => {
                 btn.addEventListener('click', function() {

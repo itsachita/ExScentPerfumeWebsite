@@ -74,7 +74,6 @@
         </div>
 
         <section class="product-pannel" id="search-results-container">
-            <!-- Products will be injected here dynamically -->
         </section>
 
         <section class="product-pannel">
@@ -83,7 +82,6 @@
             </div>
         
             <div class="product-scroll" id="recommendations">
-                <!-- Recommendations will load here -->
             </div>
         </section>
         </section>
@@ -167,7 +165,6 @@
                     const response = await fetch(`/api/search?${params.toString()}`);
                     const products = await response.json();
                     
-                    // Update URL without reloading
                     const newUrl = `${window.location.pathname}?${params.toString()}`;
                     window.history.pushState({ path: newUrl }, '', newUrl);
                     
@@ -203,7 +200,6 @@
                 });
             };
 
-            // Event Listeners
             searchForm.addEventListener('submit', (e) => {
                 e.preventDefault();
                 fetchProducts();
@@ -237,7 +233,6 @@
                 }
             };
 
-            // Initial fetch
             fetchProducts();
             fetchRecommendations();
         });

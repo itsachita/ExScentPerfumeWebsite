@@ -112,7 +112,6 @@
             <div class="col-configure">Configure</div>
         </div>
         <div id="table-body">
-            <!-- Products will be loaded here -->
         </div>
     </div>
 </main>
@@ -229,7 +228,7 @@
                 const result = await response.json();
                 if (result.success) {
                     alert('Successfully synced with Fragella!');
-                    fetchProducts(); // Refresh the table to show updated data
+                    fetchProducts();
                 } else {
                     alert('Sync failed: ' + result.error);
                 }
@@ -245,8 +244,6 @@
         fetchProducts();
     });
 </script>
-
-
 
 <!-- |||||||||||||||||||||||||||||||< FOOTER APPEARANCE >|||||||||||||||||||||||||||||||||||| -->
 <footer class="main-footer">
