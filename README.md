@@ -17,13 +17,7 @@ npm --version
 
 ## Installation
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/itsachita/ExScentPerfumeWebsite.git
-   cd ExScentPerfumeWebsite
-   ```
-
-2. **Install dependencies:**
+1. **Install dependencies:**
    ```bash
    npm install
    ```
@@ -33,7 +27,7 @@ npm --version
    - dotenv (environment variable management)
    - nodemon (development auto-reload)
 
-3. **Configure environment variables:**
+2. **Configure environment variables:**
    Create a `.env` file in the root directory with the following variables:
    ```
    PORT=3000
